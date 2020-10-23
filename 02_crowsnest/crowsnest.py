@@ -13,23 +13,23 @@ def get_args():
     """Get command-line arguments"""
 
     parser = argparse.ArgumentParser(
-        description='Rock the Casbah',
+        description='Print out what is off the larboard side',
         formatter_class=argparse.ArgumentDefaultsHelpFormatter)
 
-    parser.add_argument('word', metavar='str',help='A word')
+    parser.add_argument('word', metavar='str', help='A word')
 
     return parser.parse_args()
 
 
 # --------------------------------------------------
 def main():
-    """Make a jazz noise here"""
+    """Main Program"""
 
-    article = "a"
-    args = get_args()  
+    args = get_args()
     word = args.word
-
-    print(f'Ahoy, Captain, {article} {word} off the larbord bow!')
+    article = 'an' if word[0].lower() in 'aeiou' else 'a'
+    
+    print(f'Ahoy, Captain, {article} {word} off the larboard bow!')
 
 
 # --------------------------------------------------
