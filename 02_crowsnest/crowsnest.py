@@ -13,10 +13,15 @@ def get_args():
     """Get command-line arguments"""
 
     parser = argparse.ArgumentParser(
-        description='Print out what is off the larboard side',
-        formatter_class=argparse.ArgumentDefaultsHelpFormatter)
+        description="Crows Nest -- choose the correct article",
+        formatter_class=argparse.ArgumentDefaultsHelpFormatter,
+    )
 
-    parser.add_argument('word', metavar='str', help='A word')
+    parser.add_argument("word", metavar="str", help="A word")
+    parser.add_argument('-s',
+                        '--starboard',
+                        help='Choose starboard side of ship if true',
+                        action='store_true')
 
     return parser.parse_args()
 
@@ -27,11 +32,16 @@ def main():
 
     args = get_args()
     word = args.word
-    article = 'an' if word[0].lower() in 'aeiou' else 'a'
-    
-    print(f'Ahoy, Captain, {article} {word} off the larboard bow!')
+    side = args.starboard
+    article = "an" if word[0].lower() in "aeiou" else "a"
+    ship_side = 'starboard' if side else "larboard"
+    if word[0].isupper():
+        out_article = article.capitalize()
+    else:
+        out_article = article
 
+    print(f"Ahoy, Captain, {out_article} {word} off the {ship_side} bow!")
 
 # --------------------------------------------------
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
