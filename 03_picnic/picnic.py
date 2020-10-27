@@ -20,7 +20,7 @@ def get_args():
                         metavar='str',
                         nargs='+'
                         type='str'
-                        help='One or more picnic itesm')
+                        help='One or more picnic items')
 
     parser.add_argument('-s',
                         '--sorted',
