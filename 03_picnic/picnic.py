@@ -16,10 +16,10 @@ def get_args():
         description='Rock the Casbah',
         formatter_class=argparse.ArgumentDefaultsHelpFormatter)
 
-    parser.add_argument('positional',
+    parser.add_argument('picnic_items',
                         metavar='str',
-                        nargs='+'
-                        type='str'
+                        nargs='+',
+                        type='str',
                         help='One or more picnic items')
 
     parser.add_argument('-s',
@@ -35,17 +35,11 @@ def main():
     """Make a jazz noise here"""
 
     args = get_args()
-    str_arg = args.arg
-    int_arg = args.int
-    file_arg = args.file
-    flag_arg = args.on
-    pos_arg = args.positional
-
-    print(f'str_arg = "{str_arg}"')
-    print(f'int_arg = "{int_arg}"')
-    print('file_arg = "{}"'.format(file_arg.name if file_arg else ''))
+    flag_arg = args.sorted
+    pos_arg = args.picnic_items
+    
     print(f'flag_arg = "{flag_arg}"')
-    print(f'positional = "{pos_arg}"')
+    print(f'picnic items = "{pos_arg}"')
 
 
 # --------------------------------------------------
