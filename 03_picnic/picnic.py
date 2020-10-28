@@ -16,10 +16,10 @@ def get_args():
         description='Rock the Casbah',
         formatter_class=argparse.ArgumentDefaultsHelpFormatter)
 
-    parser.add_argument('picnic_items',
+    parser.add_argument("picnic_items",
                         metavar='str',
                         nargs='+',
-                        type='str',
+                        type=str,
                         help='One or more picnic items')
 
     parser.add_argument('-s',
@@ -36,10 +36,17 @@ def main():
 
     args = get_args()
     flag_arg = args.sorted
-    pos_arg = args.picnic_items
-    
+    picnic_stuff = args.picnic_items
+
     print(f'flag_arg = "{flag_arg}"')
-    print(f'picnic items = "{pos_arg}"')
+    print(f'
+     "{picnic_stuff}"')
+    if len(picnic_stuff) == 1:
+        print(f'equal 1: "{picnic_stuff}"')
+    elif len(picnic_stuff) == 2:
+         print(f'equal 2: "{picnic_stuff}"')
+    else:
+        print(f'more than 2: "{picnic_stuff}')
 
 
 # --------------------------------------------------
